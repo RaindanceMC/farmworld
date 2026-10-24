@@ -1,0 +1,37 @@
+id: farmworlds-staff
+title: Farm world administration
+summary: "Making, regenerating, forgetting and deleting farm worlds, and what the settings do."
+intro: |
+  You may make worlds and unmake them. Please check which one you are standing in first.
+icon: COMMAND_BLOCK
+category: Staff
+order: 40
+module: farmworlds
+permission: rainsfarmworlds.farm.manage
+keywords: [admin, create, delete, forget, regen, schedule, border, config, reload]
+related: [farmworlds]
+sections:
+  - question: How do I make a farm world?
+    title: Creating
+    text: |
+      {cmd:/farm create <name> [how often] [border]}, for example {cmd:/farm create mining 7d 5000}. How often: 7d, 2 weeks, or never. Border: blocks from the middle. Names are lower-case letters, digits, dashes and underscores, at most 24 characters, no reserved words, no server world names. A server holds at most 8. A spawn platform is built and the server pauses briefly.
+  - question: How do I change one?
+    title: Admin page
+    text: |
+      {cmd:/farm admin <name>} (or click in {run:/farm}) opens its page: regeneration interval, border, own nether, own end — each click is saved at once. Closing a world to some players: negate its node rainsfarmworlds.world.<name>.
+  - question: How do I regenerate one now?
+    title: Regenerate
+    text: |
+      {cmd:/farm regen <name>} explains; {cmd:/farm regen <name> confirm} deletes its worlds and makes them again. Everybody inside is moved to spawn, everything built is gone, no undo.
+  - question: Forget or delete?
+    title: Forget and delete
+    text: |
+      {cmd:/farm forget <name>} takes it off the list and stops regeneration; the worlds stay on disk. {cmd:/farm delete <name> confirm} removes it <b>and its worlds for good</b>.
+  - question: Which settings are there?
+    title: Settings
+    text: |
+      {cmd:/farm config} opens them (the same as /settings, filed under farmworlds). Now: wait <white>{setting:farmworlds:warmup-seconds|seconds}</white>, between trips <white>{setting:farmworlds:cooldown-seconds|seconds}</white>, warning <white>{setting:farmworlds:warn-minutes|minutes}</white> ahead, entry <white>{setting:farmworlds:entry-price|money}</white>, day pass <white>{setting:farmworlds:day-pass-price|money}</white>. {cmd:/farm reload} reads the file again.
+  - question: Who enters free?
+    title: Permissions
+    text: |
+      rainsfarmworlds.farm.use (default everybody) lets people in; rainsfarmworlds.farm.bypass.fee skips the price and the pass; rainsfarmworlds.farm.manage (staff) does all of the above and enters any world.

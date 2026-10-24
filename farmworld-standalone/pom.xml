@@ -42,7 +42,7 @@
           1.5.0: RainsCore 2.0 — the "migrated from Core" marker is a key in the farm worlds document instead of
           a file (a 1.x marker file is honoured and renamed to *.imported-2.0.0); the migration also runs on PostgreSQL. -->
         <!-- 1.6.0: the wait between farm world trips follows the player across the network. -->
-        <plugin.version>1.6.0</plugin.version>
+        <plugin.version>1.7.0</plugin.version>
     </properties>
 
     <dependencies>

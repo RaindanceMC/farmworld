@@ -1,0 +1,82 @@
+id: farmworlds
+title: Farm worlds
+summary: "Worlds to strip-mine that are regenerated on a schedule: how to get there, what it costs, what is lost."
+intro: |
+  The main world is for living in. A farm world is for chewing up. It is made again now and then, so dig as if nobody will be sad.
+icon: DIAMOND_PICKAXE
+category: Worlds
+order: 40
+module: farmworlds
+aliases: [farm, farmworld, fw, mining, mine]
+keywords: [regenerate, rtp, wild, resource, world, nether, pass, warm-up]
+commands: [farm]
+related: [farmworlds-staff]
+sections:
+  - question: What is a farm world?
+    title: What it is
+    text: |
+      A world kept apart from the main one for mining and gathering. Each has its own nether (some its own end), and it is thrown away and generated afresh — on a schedule, or when staff say so. <red>Nothing you build or store there survives.</red> Keep your base and your chests elsewhere.
+  - question: How do I get there?
+    title: Going
+    text: |
+      {run:/farm} opens the list. Click a world, or type {cmd:/farm <name>} to go straight to its spawn platform — a small stone-brick platform, flat and safe, where the way back is. {cmd:/farm list} prints the list as text and {cmd:/farm info <name>} shows its worlds, how long it has left and its border.
+      Farm worlds you may not enter are shown greyed with the reason. Staff can close single ones.
+  - question: What is the wild option?
+    title: Into the wild
+    when: farmworlds:scatter-arrivals
+    text: |
+      {cmd:/farm <name> rtp} (also wild, random, scatter) drops you somewhere nobody has been: between {setting:farmworlds:scatter-nearest|count} and {setting:farmworlds:scatter-furthest|count} blocks from the middle, never beyond the world's border. No platform, no way back but walking. Bring what you need.
+      An unknown word after the name just means the spawn — the safe reading wins.
+  - question: Why does rtp not work here?
+    title: No wild arrivals
+    when: "!farmworlds:scatter-arrivals"
+    text: |
+      This server does not send people out into the wild. {cmd:/farm <name>} takes you to the spawn platform; asking for rtp is refused out loud rather than quietly turned into something else.
+  - question: Why do I have to stand still?
+    title: The wait
+    text: |
+      {if:farmworlds:warmup-seconds > 0}After you start a trip, stand still for <white>{setting:farmworlds:warmup-seconds|seconds}</white>. Moving cancels it.{else}Trips start at once.{/if}
+      {if:farmworlds:warmup-seconds > 0 && farmworlds:hurt-cancels-warmup}Taking damage cancels it too, so you cannot escape a fight into a farm world.{/if}
+      {if:farmworlds:warmup-seconds > 0 && !farmworlds:hurt-cancels-warmup}Taking damage does not cancel the wait.{/if}
+      Logging out during the wait calls the trip off (and refunds what you paid).
+  - question: How often can I go?
+    title: Cooldown
+    when: farmworlds:cooldown-seconds > 0
+    text: |
+      <white>{setting:farmworlds:cooldown-seconds|seconds}</white> must pass between your trips to a farm world. Otherwise arriving somewhere unpromising and re-rolling would cost nothing. You are told how long is left.
+  - question: What does it cost?
+    title: Price and day pass
+    when: farmworlds:entry-price != 0 || farmworlds:day-pass-price != 0
+    text: |
+      {if:farmworlds:entry-price != 0}Every entry costs <white>{setting:farmworlds:entry-price|money}</white>, taken as the trip starts and given back if it is cancelled or fails.{/if}
+      {if:farmworlds:day-pass-price != 0}A day pass costs <white>{setting:farmworlds:day-pass-price|money}</white>: any farm world, as often as you like, for 24 hours from the trip you bought it on. It survives restarts. With both prices set, each entry offers the two side by side.{/if}
+      Some ranks enter free.
+  - question: What comes with me?
+    title: Leads and pets
+    when: farmworlds:bring-what-you-lead
+    text: |
+      What you lead comes along: a dog or horse on a lead, the boat you tow, what rides with you — however far it has drifted.
+      {if:farmworlds:bring-nearby-pets}Your own tame animals within <white>{setting:farmworlds:bring-radius|count}</white> blocks come too, even without a lead.{/if}
+      At most <white>{setting:farmworlds:bring-at-most|count}</white> animals travel with you, leads first. Other players' animals and wild mobs never do.
+  - question: Can I bring my animals?
+    title: Nothing comes along
+    when: "!farmworlds:bring-what-you-lead"
+    text: |
+      Only you travel. Whatever you were leading stays where you were.
+  - question: Where exactly will I land?
+    title: Safe landing
+    text: |
+      The server always looks for solid, safe ground, up to <white>{setting:farmworlds:safe-arrival-radius|count}</white> blocks sideways of the target, so you do not arrive in stone or lava. If it finds none you are told and can try again — it picks another place every time. If the ground cannot be checked you stay where you are.
+  - question: When is the world regenerated?
+    title: Regeneration
+    text: |
+      Look at the time left in the list or {cmd:/farm info <name>}. The whole server is warned beforehand{if:farmworlds:warn-minutes > 0}: <white>{setting:farmworlds:warn-minutes|minutes}</white> ahead, and{else}:{/if} always at five minutes and at one minute. In the last five minutes a bar shows the time to anybody standing there.
+      When it happens, everybody inside is moved to spawn and everything in the world is gone.
+  - question: Do portals work there?
+    title: Portals
+    text: |
+      Yes, and they stay inside: a portal lit in a farm world leads to that farm world's nether, never to the main one. That is the whole point.
+  - question: Can I be refused?
+    title: Access
+    text: |
+      Farm worlds need the farm permission, and each world has its own node (rainsfarmworlds.world.<name>) — so a server can open one for everybody and close another. If you are refused, the message says whether it is all farm worlds or just that one; ask whoever hands out ranks.
