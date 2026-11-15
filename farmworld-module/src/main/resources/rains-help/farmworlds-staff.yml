@@ -2,7 +2,7 @@ id: farmworlds-staff
 title: Farm world administration
 summary: "Making, regenerating, forgetting and deleting farm worlds, and what the settings do."
 intro: |
-  You may make worlds and unmake them. Please check which one you are standing in first.
+  Staff can make, regenerate, forget and delete farm worlds. Check which world you are standing in first.
 icon: COMMAND_BLOCK
 category: Staff
 order: 40
@@ -18,11 +18,11 @@ sections:
   - question: How do I change one?
     title: Admin page
     text: |
-      {cmd:/farm admin <name>} (or click in {run:/farm}) opens its page: regeneration interval, border, own nether, own end — each click is saved at once. Closing a world to some players: negate its node rainsfarmworlds.world.<name>.
+      {cmd:/farm admin <name>} (or click in {run:/farm}) opens its page: regeneration interval, border, own nether, own end. Each click is saved at once. Closing a world to some players: negate its node rainsfarmworlds.world.<name>.
   - question: How do I regenerate one now?
     title: Regenerate
     text: |
-      {cmd:/farm regen <name>} explains; {cmd:/farm regen <name> confirm} deletes its worlds and makes them again. Everybody inside is moved to spawn, everything built is gone, no undo.
+      {cmd:/farm regen <name>} explains; {cmd:/farm regen <name> confirm} deletes its worlds and makes them again. Everybody inside is moved to spawn, everything built is gone and it cannot be undone.
   - question: Forget or delete?
     title: Forget and delete
     text: |
