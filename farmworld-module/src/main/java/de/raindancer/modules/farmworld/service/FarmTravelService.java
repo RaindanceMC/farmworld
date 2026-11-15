@@ -202,7 +202,7 @@ public final class FarmTravelService implements IFarmWorldService {
             return lines;
         }
         if (passes != null && passes.isActive(who.getUniqueId())) {
-            lines.add("<green>Your day pass is running — free.");
+            lines.add("<green>Your day pass is running, so this trip is free.");
             return lines;
         }
         Money entry = Fees.quote(FarmFees.ENTRY, fees.entry());

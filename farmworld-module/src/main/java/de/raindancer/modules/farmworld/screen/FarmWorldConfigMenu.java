@@ -78,7 +78,7 @@ public final class FarmWorldConfigMenu extends Menu implements IFarmWorldScreen 
                 now.bringWhatYouLead(), "bring-what-you-lead",
                 "<gray>A dog on your lead, the boat you are towing,",
                 "<gray>and whoever is riding with you.",
-                "<dark_gray>Never another player, whatever this says — a",
+                "<dark_gray>Never another player, whatever this says: a",
                 "<dark_gray>player moved somewhere they did not ask to go is",
                 "<dark_gray>a teleport nobody agreed to.");
 
@@ -92,7 +92,7 @@ public final class FarmWorldConfigMenu extends Menu implements IFarmWorldScreen 
                                 "<gray>not on a lead. Costs a look around the player",
                                 "<gray>on every trip.",
                                 "<dark_gray>Never somebody else's animals, and never a",
-                                "<dark_gray>wild mob — a trip taken at a mob farm would",
+                                "<dark_gray>wild mob, because a trip taken at a mob farm would",
                                 "<dark_gray>otherwise arrive with the mob farm.")),
                 "Nothing travels with anybody while leads are switched off",
                 click -> cycle("bring-nearby-pets"));
@@ -135,8 +135,8 @@ public final class FarmWorldConfigMenu extends Menu implements IFarmWorldScreen 
                 Icons.of(Material.REPEATER, "<white>Wait between trips",
                         lore(Times.describe(now.cooldownFor()),
                                 "<gray>Without it, arriving somewhere unpromising and",
-                                "<gray>going straight back for another roll of the dice",
-                                "<gray>is free — and then where you landed does not",
+                                "<gray>going straight back for another try",
+                                "<gray>is free, and then where you landed does not",
                                 "<gray>matter at all.",
                                 "<dark_gray>The wait starts when somebody arrives, so an",
                                 "<dark_gray>interrupted trip is free.",
@@ -157,10 +157,10 @@ public final class FarmWorldConfigMenu extends Menu implements IFarmWorldScreen 
                                 "<gray>no switch for that: a random point in generated",
                                 "<gray>terrain is inside stone about as often as it is",
                                 "<gray>on grass.",
-                                "<dark_gray>This is only how far sideways to give up — and",
-                                "<dark_gray>it is also how much world has to be generated",
-                                "<dark_gray>to find out, so a large number is a pause for",
-                                "<dark_gray>everybody rather than for the traveller.",
+                                "<dark_gray>This is how far sideways to look before giving up.",
+                                "<dark_gray>It is also how much world has to be generated",
+                                "<dark_gray>to find out, so a large number pauses the",
+                                "<dark_gray>server for everybody, not only the traveller.",
                                 "",
                                 "<gray>Click to add one. Right click to take one away.")),
                 click -> step("safe-arrival-radius", now.safeArrivalRadius(), click, 1, 32));
@@ -192,8 +192,8 @@ public final class FarmWorldConfigMenu extends Menu implements IFarmWorldScreen 
                 Icons.of(Material.MAP, "<white>Furthest anybody lands from the middle",
                         lore(now.scatterFurthest() + " blocks",
                                 "<gray>Also how much of the world gets generated over",
-                                "<gray>its life, one arrival at a time — which is disk",
-                                "<gray>nobody notices until it runs out.",
+                                "<gray>its life, one arrival at a time. This takes disk",
+                                "<gray>space that nobody notices until it runs out.",
                                 "<dark_gray>Kept inside each farm world's own border, so a",
                                 "<dark_gray>border smaller than this wins.",
                                 "",
@@ -249,7 +249,7 @@ public final class FarmWorldConfigMenu extends Menu implements IFarmWorldScreen 
                     }
                     return Parsed.no("Type an amount like 12.50 or 1.5k, or 0 for free.");
                 })
-                .promptMarkup("<gray>" + what + " — now <white>" + priceText(current)
+                .promptMarkup("<gray>" + what + ": now <white>" + priceText(current)
                         + "</white>. Type the new amount, or say cancel.")
                 .suggest("0")
                 .owner("farmworlds")

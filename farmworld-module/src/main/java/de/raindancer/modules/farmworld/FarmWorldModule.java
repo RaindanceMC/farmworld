@@ -78,8 +78,8 @@ import java.util.Random;
 public final class FarmWorldModule implements FlexModule {
 
     private static final ModuleInfo INFO = ModuleInfo.of("farmworlds", "Farm Worlds", "1.7.0")
-            .describedAs("Somewhere to strip-mine that is regenerated — arrived at "
-                    + "somewhere different every time, and announced before it goes")
+            .describedAs("Somewhere to strip-mine that is regenerated on a schedule. You arrive "
+                    + "somewhere different every time, and the regeneration is announced beforehand")
             .by("Raindancer118");
 
     /**
@@ -253,7 +253,7 @@ public final class FarmWorldModule implements FlexModule {
 
         int farms = catalogue.count();
         if (farms == 0) {
-            log.info("Farm Worlds is up. There are none yet — /farm create <name> [how often] makes one.");
+            log.info("Farm Worlds is up. There are none yet. /farm create <name> [how often] makes one.");
         } else {
             log.info("Farm Worlds is up: {} farm world(s), {}s to stand still, {} between trips.",
                     farms, settings.current().warmup(),

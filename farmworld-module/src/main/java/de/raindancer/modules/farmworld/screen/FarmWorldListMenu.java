@@ -132,7 +132,7 @@ public final class FarmWorldListMenu extends PaginatedMenu<FarmWorldView> implem
         List<String> lines = new ArrayList<>();
         if (!farm.isScheduled()) {
             lines.add("<gray>Kept until somebody regenerates it.");
-            lines.add("<dark_gray>Which they can, at any time — so what you");
+            lines.add("<dark_gray>Which they can do at any time, so what you");
             lines.add("<dark_gray>leave here is still not safe.");
             return lines;
         }

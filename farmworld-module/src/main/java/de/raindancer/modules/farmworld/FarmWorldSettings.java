@@ -66,7 +66,7 @@ public record FarmWorldSettings(
         boolean hurtCancelsWarmup,
 
         @In("farmworlds/arriving") @Title("How far to look for solid ground") @Range(min = 1, max = 32)
-        @Describe("Blocks. Somewhere safe is always looked for — there is no switch for that, because "
+        @Describe("Blocks. Somewhere safe is always looked for, and there is no switch for that, because "
                 + "a random point in generated terrain is inside stone about as often as it is on "
                 + "grass. This is only how far sideways to give up, and it is also how much world "
                 + "has to be generated to find out, so a large number is a pause for everybody.")
@@ -119,7 +119,7 @@ public record FarmWorldSettings(
         @In("farmworlds/arriving") @Title("Furthest anybody lands from the middle")
         @Range(min = 16, max = 100000)
         @Describe("Blocks. Also how much of the world gets generated over the farm world's life, one "
-                + "arrival at a time — which is disk nobody notices until it runs out. Kept inside "
+                + "arrival at a time. This takes disk space that nobody notices until it runs out. Kept inside "
                 + "the world's border automatically, so a border smaller than this wins.")
         @Key("scatter-furthest")
         int scatterFurthest,

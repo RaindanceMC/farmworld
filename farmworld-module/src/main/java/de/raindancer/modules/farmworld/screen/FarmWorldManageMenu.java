@@ -120,7 +120,7 @@ public final class FarmWorldManageMenu extends Menu implements IFarmWorldScreen 
                         "<gray>regenerated on a schedule.",
                         "",
                         "<yellow>Its worlds are left exactly where they are.",
-                        "<dark_gray>Nothing is deleted — the folders stay, and",
+                        "<dark_gray>Nothing is deleted. The folders stay, and",
                         "<dark_gray>people already standing there stay too. This is",
                         "<dark_gray>how a farm world becomes an ordinary world you",
                         "<dark_gray>have decided to keep."),
@@ -229,7 +229,7 @@ public final class FarmWorldManageMenu extends Menu implements IFarmWorldScreen 
         lore.add("<yellow>" + farm.every().map(Times::describe).orElse("Only when asked"));
         lore.add("");
         lore.add("<gray>How often it is regenerated.");
-        lore.add("<dark_gray>The whole server is warned beforehand — how long");
+        lore.add("<dark_gray>The whole server is warned beforehand. How long");
         lore.add("<dark_gray>before is on the settings page.");
         lore.add("");
         lore.add("<gray>Click for the next one. Right click for the one before.");
@@ -258,8 +258,8 @@ public final class FarmWorldManageMenu extends Menu implements IFarmWorldScreen 
         lore.add(on ? "<green>It has one" : "<red>It has none");
         lore.add("<gray>Click to " + (on ? "stop managing it." : "make it."));
         if (on) {
-            lore.add("<dark_gray>Switching it off does not delete the " + which + " —");
-            lore.add("<dark_gray>the folder stays and stops being regenerated.");
+            lore.add("<dark_gray>Switching it off does not delete the " + which + ".");
+            lore.add("<dark_gray>The folder stays and stops being regenerated.");
         } else {
             lore.add("<dark_gray>Making it pauses the server for a moment.");
         }

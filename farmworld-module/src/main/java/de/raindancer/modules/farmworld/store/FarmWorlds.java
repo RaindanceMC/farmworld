@@ -238,7 +238,7 @@ public final class FarmWorlds {
             // chunk walls through the middle of the world. A world that is simply missing can be
             // fixed by hand; a corrupted one cannot.
             log.fatal("'{}' was only partly deleted and has NOT been made again. Its folder is at "
-                    + "{} — remove it by hand, then start the server. Recreating it now would "
+                    + "{}. Remove it by hand, then start the server. Recreating it now would "
                     + "generate new terrain around the surviving chunks.", name, folder);
             return Step.FAILED;
         }
@@ -272,7 +272,7 @@ public final class FarmWorlds {
         if (set == null) {
             return false;
         }
-        log.warn("Deleting the farm world '{}' — its worlds are being removed for good.", set.name());
+        log.warn("Deleting the farm world '{}'. Its worlds are being removed for good.", set.name());
         Location safety = safeSpawn();
         if (safety == null) {
             log.error("Cannot delete '{}': there is nowhere to move players to.", set.name());
@@ -332,7 +332,7 @@ public final class FarmWorlds {
      * fallback for a server that has none.
      */
     private static net.kyori.adventure.text.Component farmWorldMessage() {
-        String builtIn = "The farm world is being made again — you have been moved to spawn.";
+        String builtIn = "The farm world is being made again, so you have been moved to spawn.";
         if (!de.raindancer.core.RainsCore.isAvailable()) {
             return net.kyori.adventure.text.Component.text(builtIn);
         }

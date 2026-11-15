@@ -175,8 +175,8 @@ public final class FarmWorldMenu extends Menu implements IFarmWorldScreen {
         lore.add("<gray><white>" + scatter.nearest() + "</white> and <white>"
                 + scatter.furthest() + "</white> blocks out.");
         lore.add("");
-        lore.add("<dark_gray>No platform, no way back and nothing around it —");
-        lore.add("<dark_gray>which is the point. Bring what you need.");
+        lore.add("<dark_gray>No platform, no way back and nothing around it.");
+        lore.add("<dark_gray>Bring what you need.");
         lore.addAll(services.travelling().priceLines(viewer));
         lore.add("");
         lore.add("<gray>Click to go. Or type <white>/farm "
@@ -221,7 +221,7 @@ public final class FarmWorldMenu extends Menu implements IFarmWorldScreen {
         farm.untilRegenerated().ifPresentOrElse(
                 left -> lore.add("<yellow>" + Times.describe(left) + " left"),
                 () -> lore.add("<red>Due to be regenerated"));
-        lore.add("<dark_gray>Everything in it goes when it is — what you");
+        lore.add("<dark_gray>Everything in it goes when it is. What you");
         lore.add("<dark_gray>want to keep does not belong here.");
         return lore;
     }

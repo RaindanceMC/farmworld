@@ -44,13 +44,13 @@ public final class FarmWorldCommands {
                                 new de.raindancer.modules.farmworld.command.FarmWorldCommand(
                                         FarmWorldCommands::require))
                         .aliased("farmworld", "fw")
-                        .taking("<name> — go there",
-                                "list — every farm world this server has",
-                                "info <name> — what it is and how long it has left",
-                                "create <name> [how often] [border] — make one",
-                                "regen <name> confirm — regenerate it now",
-                                "delete <name> confirm — remove it and its worlds for good",
-                                "forget <name> — take it off the list, keeping its worlds")
+                        .taking("<name>: go there",
+                                "list: every farm world this server has",
+                                "info <name>: what it is and how long it has left",
+                                "create <name> [how often] [border]: make one",
+                                "regen <name> confirm: regenerate it now",
+                                "delete <name> confirm: remove it and its worlds for good",
+                                "forget <name>: take it off the list, keeping its worlds")
                         .needing("rainsfarmworlds.farm.use"));
     }
 
