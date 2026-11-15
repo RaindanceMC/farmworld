@@ -20,24 +20,24 @@ farmworlds:
 
   # ---------------------------------------------------------------- going somewhere
   unknown: "<red>No farm world called <white><name></white>. Check the spelling, or the list."
-  not-loaded: "<yellow><name></yellow> lives in a world that is not loaded right now. Try again in a bit."
+  not-loaded: "<yellow><name></yellow> is in a world that is not loaded. Try again in a moment."
   on-cooldown: "<yellow>You can go to a farm world again in <white><time></white>."
-  entry-offer: "<yellow>Entering <white><name></white> costs <white><price></white> — or <white><pass-price></white> for a pass that lets you into every farm world, as often as you like, for 24 hours."
-  cannot-afford: "<red>That costs <white><price></white>, and you do not have it."
-  payment-failed: "<red>The <white><price></white> could not be taken, so nobody went anywhere. Nothing was charged."
+  entry-offer: "<yellow>Entering <white><name></white> costs <white><price></white>. A pass for <white><pass-price></white> lets you into every farm world, as often as you like, for 24 hours."
+  cannot-afford: "<red>That costs <white><price></white> and you do not have enough."
+  payment-failed: "<red>The <white><price></white> could not be taken, so you did not travel. Nothing was charged."
   paid: "<gray>Paid <white><price></white>."
   pass-bought: "<green>Paid <white><price></white>. Every farm world is open to you for the next 24 hours."
   refunded: "<gray>No trip, so your <white><price></white> is back."
-  warming-up: "<gray>Off to <white><name></white> in <white><seconds></white>… stand still."
-  arrived: "<green>Welcome to <white><name></white>'s spawn. Mind the mess."
-  arrived-wild: "<green>You are out in <white><name></white> at <white><where></white>. The way back is on foot, so enjoy the scenery."
-  no-rtp: "<red>This server does not drop people into farm worlds at random. Type <white>/farm <its name></white> to arrive at its spawn."
-  arrived-shortly-before: "<yellow>Careful: <white><name></white> is regenerated in <white><time></white>. Nothing you leave here will survive it."
+  warming-up: "<gray>Going to <white><name></white> in <white><seconds></white>. Stand still."
+  arrived: "<green>You arrived at the spawn of <white><name></white>."
+  arrived-wild: "<green>You are out in <white><name></white> at <white><where></white>. The way back is on foot."
+  no-rtp: "<red>This server does not send players to random places in farm worlds. Type <white>/farm <its name></white> to arrive at its spawn."
+  arrived-shortly-before: "<yellow><white><name></white> is regenerated in <white><time></white>. Nothing you leave here will survive it."
   already-travelling: "<yellow>You are already on your way somewhere."
-  nowhere-safe: "<red>No safe spot found in <white><name></white>. Try again, it picks a different place each time."
+  nowhere-safe: "<red>No safe spot found in <white><name></white>. Try again: it picks a different place each time."
   could-not-check: "<red>The ground in <white><name></white> could not be checked, so you are staying here."
   teleport-refused: "<red>Something stopped you arriving in <white><name></white>."
-  cannot-schedule: "<red>The server cannot send you anywhere just now. Try again in a moment."
+  cannot-schedule: "<red>The server cannot send you there. Try again in a moment."
   only-a-player: "<red>Only a player standing in the world can go to a farm world."
 
   cancelled:
@@ -51,10 +51,10 @@ farmworlds:
     this-one: "<red><white><name></white> is not one you may enter. Ask whoever hands out the ranks."
 
   # ---------------------------------------------------------------- the list
-  none-yet: "<gray>This server has no farm worlds. Very tidy."
+  none-yet: "<gray>This server has no farm worlds."
   list-heading: "<gray><count> farm world(s):"
-  list-row: "<dark_gray>  <white><name></white> <dark_gray>— <gray><count> world(s), <time>"
-  how-to-make-one: "<gray>Type <white>/farm create <what to call it> <how often></white> — for example <white>/farm create mining 7d</white>."
+  list-row: "<dark_gray>  <white><name></white><dark_gray>: <gray><count> world(s), <time>"
+  how-to-make-one: "<gray>Type <white>/farm create <what to call it> <how often></white>, for example <white>/farm create mining 7d</white>."
 
   info-heading: "<gray><white><name></white>:"
   info-world: "<dark_gray>  <world> <gray>(<state>)"
@@ -67,11 +67,11 @@ farmworlds:
   could-not-make: "<red><white><name></white> is on the list, but the server refused to make its worlds. The log says why."
   already-exists: "<red><white><name></white> is already a farm world."
   too-many: "<red>This server already has its <white><limit></white> farm worlds. Forget one first."
-  forgotten: "<green><white><name></white> is no longer a farm world. Its worlds are left exactly where they are, nothing has been deleted."
+  forgotten: "<green><white><name></white> is no longer a farm world. Its worlds are left where they are. Nothing has been deleted."
   deleting: "<gray>Deleting <white><name></white>. The server will pause."
   deleted: "<green><white><name></white> and its worlds are gone."
-  delete-failed: "<red><white><name></white> was not fully deleted, so it is still on the list. The server log has it — check which of its worlds are loaded before doing anything else."
-  schedule-set: "<green><white><name></white> will be regenerated every <white><time></white>, like clockwork."
+  delete-failed: "<red><white><name></white> was not fully deleted, so it is still on the list. The server log has the details. Check which of its worlds are loaded before doing anything else."
+  schedule-set: "<green><white><name></white> will be regenerated every <white><time></white>."
   schedule-off: "<green><white><name></white> will only be regenerated when somebody asks."
   border-set: "<green><white><name></white> will reach <white><blocks></white> blocks from the middle when it is next made."
   border-off: "<green><white><name></white> will have no border when it is next made."
@@ -83,23 +83,23 @@ farmworlds:
   not-yours: "<red>Farm worlds are not yours to change."
   reloaded: "<green>The farm world settings have been read again."
   bad-period: "<red><white><text></white> is not a length of time. Try <white>7d</white>, <white>2 weeks</white>, or <white>never</white>."
-  bad-border: "<red><white><text></white> is not a number of blocks. Numbers only, please."
+  bad-border: "<red><white><text></white> is not a number of blocks. Use a number."
 
   # A name is refused for five different reasons and each says which, because "that name will not do" is the
   # answer people try four more spellings against.
   name:
     empty: "<red>A farm world needs a name."
     too-long: "<red>That name is too long: <white><limit></white> characters at most. It has to fit on its own button."
-    bad-characters: "<red>A farm world's name may have lower-case letters, digits, dashes and underscores in it, and nothing else — it becomes a folder on the disk."
-    reserved: "<red><white><name></white> is a word <white>/farm</white> reads as an instruction, so no farm world can have it. Pick another."
-    dangerous: "<red><white><name></white> is one of the server's own worlds, or a name that is a path. Making it a farm world would mean deleting the server."
+    bad-characters: "<red>A farm world's name may contain only lower-case letters, digits, dashes and underscores, because it becomes a folder on the disk."
+    reserved: "<red><white><name></white> is a word <white>/farm</white> reads as an instruction, so no farm world can have that name. Pick another."
+    dangerous: "<red><white><name></white> is one of the server's own worlds or a path. Making it a farm world would delete the server's world."
 
   # ---------------------------------------------------------------- regenerating one
-  delete-are-you-sure: "<red>This deletes <white><name></white> and its <white><count></white> world(s) for good. Everything anybody built in them is gone and nothing is put back. Say <white>/farm delete <name> confirm</white> if you mean it, or <white>/farm forget <name></white> to take it off the list and keep the worlds."
-  regen-are-you-sure: "<yellow>This deletes <white><count></white> world(s) and makes them again. Everything anybody built in them is gone, and everybody standing there is moved to spawn. Say <white>/farm regen <name> confirm</white> if you mean it."
+  delete-are-you-sure: "<red>This deletes <white><name></white> and its <white><count></white> world(s) for good. Everything anybody built in them is gone and nothing is put back. To go ahead, type <white>/farm delete <name> confirm</white>. To take it off the list and keep the worlds, type <white>/farm forget <name></white>."
+  regen-are-you-sure: "<yellow>This deletes <white><count></white> world(s) and makes them again. Everything anybody built in them is gone, and everybody standing there is moved to spawn. To go ahead, type <white>/farm regen <name> confirm</white>."
   regenerating: "<gray>Making <white><name></white> again. The server will pause."
-  regenerated: "<green><white><name></white> is new. Smells like fresh dirt."
-  regeneration-failed: "<red><white><name></white> was not fully made again. The server log has it — check which of its worlds are loaded before doing anything else."
+  regenerated: "<green><white><name></white> is new."
+  regeneration-failed: "<red><white><name></white> was not fully made again. The server log has the details. Check which of its worlds are loaded before doing anything else."
 
   # ---------------------------------------------------------------- what everybody is told
   #
@@ -123,26 +123,26 @@ farmworlds:
   # "<name>" meaning "something forgot to fill this in", so instruction is written out in words.
   usage:
     info: "<gray>/farm info <which one>"
-    config: "<gray>/farm config <dark_gray>— opens the page; there is nothing to type"
-    create: "<gray>/farm create <what to call it> [how often] [how far out] <dark_gray>— e.g. /farm create mining 7d 5000"
-    delete: "<gray>/farm delete <which one> confirm <dark_gray>— removes it and its worlds for good"
-    forget: "<gray>/farm forget <which one> <dark_gray>— takes it off the list; its worlds stay"
+    config: "<gray>/farm config<dark_gray>: opens the page, there is nothing to type"
+    create: "<gray>/farm create <what to call it> [how often] [how far out]<dark_gray>: for example /farm create mining 7d 5000"
+    delete: "<gray>/farm delete <which one> confirm<dark_gray>: removes it and its worlds for good"
+    forget: "<gray>/farm forget <which one><dark_gray>: takes it off the list, its worlds stay"
     regen: "<gray>/farm regen <which one> confirm"
 
   # ---------------------------------------------------------------- help
   help:
-    - "<gray>/farm <dark_gray>— the farm worlds on this server"
-    - "<gray>/farm mining <dark_gray>— to that one's spawn platform"
-    - "<gray>/farm mining rtp <dark_gray>— out into it, somewhere nobody has been"
-    - "<gray>/farm list <dark_gray>— the same list, as text you can paste"
-    - "<gray>/farm info mining <dark_gray>— what it is and how long it has left"
+    - "<gray>/farm<dark_gray>: the farm worlds on this server"
+    - "<gray>/farm mining<dark_gray>: to that one's spawn platform"
+    - "<gray>/farm mining rtp<dark_gray>: out into it, to a place nobody has been"
+    - "<gray>/farm list<dark_gray>: the same list, as text you can paste"
+    - "<gray>/farm info mining<dark_gray>: what it is and how long it has left"
   help-admin:
-    - "<gray>/farm admin <dark_gray>— one farm world's schedule, border and dimensions"
-    - "<gray>/farm create <dark_gray>— make one, without the menu"
-    - "<gray>/farm delete <dark_gray>— remove one and its worlds for good; asks twice"
-    - "<gray>/farm forget <dark_gray>— take one off the list, keeping its worlds"
-    - "<gray>/farm regen <dark_gray>— throw one away now; asks twice"
-    - "<gray>/farm config <dark_gray>— what a trip costs, and where people land"
+    - "<gray>/farm admin<dark_gray>: one farm world's schedule, border and dimensions"
+    - "<gray>/farm create<dark_gray>: make one, without the menu"
+    - "<gray>/farm delete<dark_gray>: remove one and its worlds for good, asks twice"
+    - "<gray>/farm forget<dark_gray>: take one off the list, keeping its worlds"
+    - "<gray>/farm regen<dark_gray>: regenerate one now, asks twice"
+    - "<gray>/farm config<dark_gray>: what a trip costs, and where people land"
 
   manual:
     using:
@@ -154,7 +154,7 @@ farmworlds:
       - ""
       - "<dark_gray>A plain trip puts you on the spawn platform, where"
       - "<dark_gray>the way back is. Add <white>rtp</white> to be sent out into it"
-      - "<dark_gray>instead — somewhere nobody has been, with nothing"
+      - "<dark_gray>instead: a place nobody has been, with nothing"
       - "<dark_gray>around it and no way back but walking."
       - ""
       - "<red>Nothing you build there is safe. When the farm world is"
@@ -162,7 +162,7 @@ farmworlds:
     one:
       - "<gray>Everything about one farm world."
       - ""
-      - "<gray>How long it has left is the number to read before you go."
+      - "<gray>Check how long it has left before you go."
       - "<gray>The whole server is warned beforehand, and again five"
       - "<gray>minutes and one minute before it happens."
       - ""
@@ -178,7 +178,7 @@ farmworlds:
       - "<gray>no Apply button to forget."
       - ""
       - "<dark_gray>Forgetting a farm world does not delete anything. It comes"
-      - "<dark_gray>off the list and stops being regenerated — which is how a"
+      - "<dark_gray>off the list and stops being regenerated. This is how a"
       - "<dark_gray>farm world becomes an ordinary world you have kept."
       - ""
       - "<red>The button in the bottom middle does delete. Three worlds,"
@@ -190,8 +190,8 @@ farmworlds:
       - "<gray>no Apply button to forget."
       - ""
       - "<dark_gray>The same settings as /settings, which has them filed under"
-      - "<dark_gray>farmworlds — this is the one page about farm worlds rather"
-      - "<dark_gray>than the whole server's tree."
+      - "<dark_gray>farmworlds. This page only covers farm worlds, not"
+      - "<dark_gray>the whole server's settings."
       - ""
       - "<dark_gray>Which farm worlds there are, and how often each is thrown"
       - "<dark_gray>away, is not here: that is per farm world, and it lives on"
