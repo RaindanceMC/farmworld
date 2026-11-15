@@ -146,8 +146,6 @@ public final class FarmWorldModule implements FlexModule {
         context.core().messages().defineFrom(
                 FarmWorldModule.class.getResourceAsStream("messages.yml"),
                 context.chat().brand()::chatPrefix);
-        // The same lines said plainly, for a server whose Message tone is SERIOUS.
-        context.core().messages().seriousFrom(FarmWorldModule.class.getResourceAsStream("messages-serious.yml"));
 
         // This module's own database now, not Core's shared one — see FarmWorldState.SCHEMA. A server
         // that ran an older version of this module kept these same rows in Core's core.db; migrateFrom
