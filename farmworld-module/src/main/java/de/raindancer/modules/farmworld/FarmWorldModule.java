@@ -77,7 +77,7 @@ import java.util.Random;
  */
 public final class FarmWorldModule implements FlexModule {
 
-    private static final ModuleInfo INFO = ModuleInfo.of("farmworlds", "Farm Worlds", "1.7.0")
+    private static final ModuleInfo INFO = ModuleInfo.of("farmworlds", "Farm Worlds", "1.8.0")
             .describedAs("Somewhere to strip-mine that is regenerated on a schedule. You arrive "
                     + "somewhere different every time, and the regeneration is announced beforehand")
             .by("Raindancer118");
@@ -247,6 +247,18 @@ public final class FarmWorldModule implements FlexModule {
 
         // The command was registered during bootstrap, long before any of this existed, and has been answering
         // "not started yet" until now. See FarmWorldCommands.
+        // The farm worlds are a door on /travel (Core 2.103.0).
+        try {
+            var door = de.raindancer.core.ui.travel.TravelDoor.of("farmworld:farm", 45, "Farm world",
+                            "Dig up a world that is made new from time to time.",
+                            (player, parent) -> new FarmWorldListMenu(services, player, parent).open())
+                    .needing(PermissionNodes.USE);
+            de.raindancer.core.ui.travel.TravelDoors.offer(context.plugin(), door);
+            context.closeWith(() -> de.raindancer.core.ui.travel.TravelDoors.withdraw(door));
+        } catch (LinkageError olderCore) {
+            log.info("RainsCore is older than 2.103.0: farm worlds are not on /travel.");
+        }
+
         FarmWorldCommands.ready(services);
 
         int farms = catalogue.count();
